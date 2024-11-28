@@ -11,9 +11,9 @@
             <x-section-heading>Featured Jobs</x-section-heading>
 
             <div class="grid lg:grid-cols-3 gap-8 mt-6">
-                <x-job-card />
-                <x-job-card />
-                <x-job-card />
+                @foreach ($featuredJobs as $job)
+                <x-job-card :job="$job" />
+                @endforeach
             </div>
         </section>
 
@@ -21,27 +21,20 @@
             <x-section-heading>Trending Tags</x-section-heading>
 
             <div class="mt-6 space-x-1">
-                <x-tag>Laravel</x-tag>
-                <x-tag>PHP</x-tag>
-                <x-tag>Blade</x-tag>
-                <x-tag>Vue</x-tag>
-                <x-tag>Tailwind</x-tag>
-                <x-tag>Linux</x-tag>
-                <x-tag>MySQL</x-tag>
-                <x-tag>Git</x-tag>
-                <x-tag>MySQL</x-tag>
-                <x-tag>Vite</x-tag>
+                @foreach ($tags as $tag)
+                <x-tag :tag="$tag" />
+                @endforeach
             </div>
+
         </section>
 
         <section>
             <x-section-heading>Recent Jobs</x-section-heading>
 
             <div class="mt-6 space-y-6">
-
-                <x-job-card-wide />
-                <x-job-card-wide />
-                <x-job-card-wide />
+                @foreach ($jobs as $job)
+                <x-job-card :job="$job" />
+                @endforeach
             </div>
         </section>
     </div>
